@@ -1,5 +1,5 @@
 // when targetting classes we will use ".city"
-// when tragetting id we will use "#"
+// when targetting id we will use "#"
 
 // Search Engine
 function handleSearchSubmit(event) {
