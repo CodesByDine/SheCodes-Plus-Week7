@@ -96,11 +96,6 @@ main {
   justify-content: space-between;
 }
 
-/* .forecast-days {
-  display: flex;
-  justify-content: space-between;
-} */
-
 .weather-forecast-date {
   font-size: 20px;
   opacity: 0.6;
