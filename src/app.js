@@ -24,6 +24,8 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -60,8 +62,16 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+// Handling Forecast API
+function getForecast(city) {
+  let apiKey = "t6b6bfd88092a3a53d3o114058062b74";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiURL).then(displayForecast);
+}
+
 // Handling Forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -81,7 +91,7 @@ function displayForecast() {
               <span class="temp-max">18°</span>
               <span class="temp-min">12°</span>
             </div>
-          </div>`;
+        </div>`;
   });
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
@@ -91,4 +101,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Sandton");
-displayForecast();
