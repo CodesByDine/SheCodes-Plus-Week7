@@ -92,7 +92,14 @@ main {
   margin-top: 20px;
   text-align: center;
   color: #272142;
+  display: flex;
+  justify-content: space-between;
 }
+
+/* .forecast-days {
+  display: flex;
+  justify-content: space-between;
+} */
 
 .weather-forecast-date {
   font-size: 20px;
