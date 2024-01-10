@@ -60,7 +60,35 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+// Handling Forecast
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="forecast-days">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="icon">
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                alt=""
+                width="69"
+              />
+            </div>
+            <div class="weather-forecast-temperature">
+              <span class="temp-max">18°</span>
+              <span class="temp-min">12°</span>
+            </div>
+          </div>`;
+  });
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Sandton");
+displayForecast();
